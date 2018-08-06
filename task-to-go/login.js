@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Logo from './logo';
 import Form from './form';
 
+// added another comment
 export default class login extends Component {   
     static navigationOptions = {
         title: "Login"
