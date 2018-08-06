@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import MPapp from './MPapp';
+import App from './task-to-go/App';
 
-AppRegistry.registerComponent('AwesomeProject', () => MPapp);
+AppRegistry.registerComponent('AwesomeProject', () => App);

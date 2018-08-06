@@ -14,12 +14,14 @@ export default class homeScreen extends Component {
                 <View style= {styles.button}>
                     <TouchableOpacity
                         onPress= {()=> this.props.navigation.navigate('registration')}>
-                        <Text>Register</Text>
+                        <Text style= {styles.buttonText}>Register</Text>
                     </TouchableOpacity>
-
+                </View>
+                
+                <View style= {styles.button}>
                     <TouchableOpacity
                         onPress= {()=> this.props.navigation.navigate('contact')}>
-                        <Text>Contact</Text>
+                        <Text style= {styles.buttonText}>Contact</Text>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -41,8 +43,12 @@ const styles= StyleSheet.create ({
     button: {
         backgroundColor: '#ff6347',
         color: '#ffffff',
-        margin: 50,
+        margin: 10,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    buttonText: {
+        margin:10,
+        padding: 5
     }
 })
