@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import Logo from './logo';
-import Form from './form'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import Logo from './Logo';
+import Form from './Form';
 
-// Added comment
-export default class signup extends Component {
+export default class Login extends Component {
+    static navigationOptions = {
+        title: "Login"
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <Logo />
-                <Form type='Signup' />
+                <Form type='Login' />
                 <View style={styles.signupTextCont}>
-                    <Text style={styles.signupText}>Already have an account?</Text>
-                    <Text style={styles.signupButton} onPress={() => this.props.navigation.goBack()}>Sign in</Text>
+                    <Text style={styles.signupText}>Don't have an account yet?</Text>
+                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('Signup') }}>
+                        <Text style={styles.signupButton}>Signup</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         );

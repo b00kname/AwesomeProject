@@ -1,15 +1,15 @@
 import React, {Component} from 'react';
 import {View, StatusBar, StyleSheet} from 'react-native';
-import Signup from './signup';
+import Login from './Login';
 
-export default class signupHost extends Component {
+export default class LoginHost extends Component {
     render() {
         return(
             <View style= {styles.container}>
                 <StatusBar
                     backgroundColor= '#7b1fa2'
                 />
-                <Signup navigation={this.props.navigation}/>
+                <Login navigation={this.props.navigation}/>
             </View>
         );
     }

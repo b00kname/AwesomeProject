@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
 
-export default class form extends Component {
+export default class Form extends Component {
     constructor (props) {
         super (props)
     }

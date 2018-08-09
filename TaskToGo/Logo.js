@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 
-export default class logo extends Component {
+export default class Logo extends Component {
     render() {
         return(
             <View style= {styles.container}>

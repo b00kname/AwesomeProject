@@ -11,7 +11,7 @@ Date.prototype.formatted= function() {
     
     return '$(daysText[day]), $(monthText[month]), $(date), $(year)';
 }
-export default class addTask extends Component {
+export default class AddTask extends Component {
     constructor(props) {
         super(props)
         this.state= {

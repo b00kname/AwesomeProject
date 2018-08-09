@@ -4,11 +4,11 @@ import SignupHost from './signupHost';
 import React, {Component} from 'react';
 
 export default createStackNavigator ({
-        'Login': {screen: LoginHost},
-        'Signup': {screen: SignupHost}
+        'LoginHost': {screen: LoginHost},
+        'SignupHost': {screen: SignupHost}
     },
     {
-        initialRouteName: 'Login',
+        initialRouteName: 'LoginHost',
         headerMode: 'none',
         navigationOptions: {
             headerVisible: false
