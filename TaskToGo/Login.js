@@ -4,10 +4,6 @@ import Logo from './Logo';
 import Form from './Form';
 
 export default class Login extends Component {
-    static navigationOptions = {
-        title: "Login"
-    }
-
     render() {
         return (
             <View style={styles.container}>
@@ -15,7 +11,7 @@ export default class Login extends Component {
                 <Form type='Login' />
                 <View style={styles.signupTextCont}>
                     <Text style={styles.signupText}>Don't have an account yet?</Text>
-                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('Signup') }}>
+                    <TouchableOpacity onPress={() => { this.props.navigation.navigate('SignupHost') }}>
                         <Text style={styles.signupButton}>Signup</Text>
                     </TouchableOpacity>
                 </View>

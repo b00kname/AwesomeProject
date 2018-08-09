@@ -1,31 +1,31 @@
-import React, {Component} from 'react';
-import {View, Text, TextInput, TouchableOpacity, StyleSheet} from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 export default class Form extends Component {
-    constructor (props) {
-        super (props)
+    constructor(props) {
+        super(props)
     }
     render() {
-        return(
-            <View style= {styles.container}>
-                <TextInput style= {styles.inputBox} underlineColorAndroid= 'rgba(0, 0, 0, 0)'
-                    placeholder= 'Email'
-                    placeholderTextColor= '#ffffff'/>
+        return (
+            <View style={styles.container}>
+                <TextInput style={styles.inputBox} underlineColorAndroid='rgba(0, 0, 0, 0)'
+                    placeholder='Email'
+                    placeholderTextColor='#ffffff' />
 
-                <TextInput style= {styles.inputBox} underlineColorAndroid= 'rgba(0, 0, 0, 0)'
-                    placeholder= 'Password'
-                    placeholderTextColor= '#ffffff'
-                    secureTextEntry= {true}/>
+                <TextInput style={styles.inputBox} underlineColorAndroid='rgba(0, 0, 0, 0)'
+                    placeholder='Password'
+                    placeholderTextColor='#ffffff'
+                    secureTextEntry={true} />
 
-                <TouchableOpacity style= {styles.button}>
-                    <Text style= {styles.buttonText}>{this.props.type}</Text>
+                <TouchableOpacity style={styles.button}>
+                    <Text style={styles.buttonText}>{this.props.type}</Text>
                 </TouchableOpacity>
             </View>
         );
     }
 }
 
-const styles= StyleSheet.create ({
+const styles = StyleSheet.create({
     container: {
         flexGrow: 1,
         justifyContent: 'center',

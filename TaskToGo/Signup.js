@@ -3,7 +3,6 @@ import { View, Text, StyleSheet } from 'react-native';
 import Logo from './Logo';
 import Form from './Form'
 
-// Added comment
 export default class Signup extends Component {
     render() {
         return (
