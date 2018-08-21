@@ -1,11 +1,12 @@
-import { createStackNavigator, StackNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import LoginHost from './LoginHost';
 import SignupHost from './SignupHost';
-import React, { Component } from 'react';
+import TaskForm from './TaskForm';
 
 export default createStackNavigator({
     'LoginHost': { screen: LoginHost },
-    'SignupHost': { screen: SignupHost }
+    'SignupHost': { screen: SignupHost },
+    'TaskForm': { screen: TaskForm }
 },
     {
         initialRouteName: 'LoginHost',
