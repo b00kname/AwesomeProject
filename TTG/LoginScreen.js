@@ -1,58 +1,52 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, StatusBar, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import * as firebase from 'firebase';
 
-var config = {
+const config = {
     apiKey: "AIzaSyDG4GzUOBrpt9dr3VdiUZSpr5TY9dzm7N4",
     authDomain: "tasktogoo.firebaseapp.com",
     databaseURL: "https://tasktogoo.firebaseio.com",
     projectId: "tasktogoo",
-    storageBucket: "tasktogoo.appspot.com",
-    messagingSenderId: "682989888050"
-  };
-  firebase.initializeApp(config);
+    storageBucket: ""
+};
+firebase.initializeApp(config);
 
-export default class Form extends Component {
+export default class LoginScreen extends Component {
     constructor(props) {
         super(props)
-        this.state = {
+        this.state = ({
             email: '',
-            password: '',
-            error: '',
-            loading: false
+            password: ''
+        })
+    }
+
+    onLoginPress = (email, password) => {
+        try {
+            firebase.auth().signInWithEmailAndPassword(email, password)
+            this.props.navigation.navigate('TaskForm')
+        }
+        catch (error) {
+            console.log(error.toString)
         }
     }
 
-    onLoginPress() {
-        this.setState({ error: '', loading: true });
 
-        const { email, password } = this.state;
-        firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(() => {
-
-                this.props.navigation.navigate('TaskForm');
-            })
-            .catch(() => {
-                this.state = ({ error: 'Authentication failed, please register an account', loading: false })
-            })
-    }
-
-    onSignupPress() {
-        this.setState({ error: '', loading: true });
-
-        const { email, password } = this.state;
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then(() => {
-                this.props.navigation.navigate('TaskForm');
-            })
-            .catch(() => {
-                this.state = ({ error: 'Authentication failed', loading: false })
-            })
+    onSignupPress = (email, password) => {
+        try {
+            firebase.auth().createUserWithEmailAndPassword(email, password)
+            this.props.navigation.navigate('TaskForm');
+        }
+        catch (error) {
+            console.log(error.toString)
+        }
     }
 
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar
+                    backgroundColor='#7b1fa2'
+                />
                 <TextInput style={styles.inputBox} underlineColorAndroid='rgba(0, 0, 0, 0)'
                     placeholder='Email'
                     placeholderTextColor='#ffffff'
@@ -84,9 +78,10 @@ export default class Form extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flexGrow: 1,
+        flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: '#7b1fa2'
     },
 
     inputBox: {
@@ -113,5 +108,4 @@ const styles = StyleSheet.create({
         fontWeight: '500',
         textAlign: 'center'
     }
-
 })

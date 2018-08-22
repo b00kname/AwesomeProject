@@ -2,6 +2,9 @@ import { AppRegistry } from 'react-native';
 
 import App from './TaskToGo/App';
 //import TaskForm from './TaskToGo/TaskForm';
+//import App from './TTG/App';
+//import LoginScreen from './TTG/LoginScreen';
+import Login from './TaskToGo/Login'
 
 //import SectionList from './SectionList'; 
 //import DatePicker from './DatePicker';
@@ -15,4 +18,4 @@ import App from './TaskToGo/App';
 
 
 
-AppRegistry.registerComponent('AwesomeProject', () => App);
+AppRegistry.registerComponent('AwesomeProject', () => Login);
