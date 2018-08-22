@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, StatusBar, TextInput, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import * as firebase from 'firebase';
 
 var config = {
@@ -47,6 +47,10 @@ export default class Login extends Component {
     render() {
         return (
             <View style={styles.container}>
+                <StatusBar
+                    backgroundColor='#7b1fa2'
+                />
+
                 <Image style={{ width: 200, height: 100 }}
                     source={require('./taskToGo.png')} />
 
@@ -86,6 +90,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#7b1fa2',
         justifyContent: 'center',
         alignItems: 'center'
     },
