@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, StatusBar, Image, TouchableOpacity, StyleSheet } from 'react-native';
-//import * as firebase from 'firebase';
+//  import * as firebase from 'firebase';
 import firebase from '@firebase/app'
 import '@firebase/auth'
 
@@ -23,27 +23,17 @@ export default class Login extends Component {
             message: ''
         }
     }
+
     onLoginPress() {
         const { email, password } = this.state;
         firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(() => {
-                this.setState({ message: '' })
-                this.props.navigation.navigate('TaskForm')
-            })
-            .catch(() => {
-                this.setState({ message: 'Email/Password incorrect, Please register before login.' })
-            })
+        this.props.navigation.navigate('TaskForm')
     }
 
     onSignupPress() {
         const { email, password } = this.state;
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then(() => {
-                this.setState({ message: 'Register Successfully !' })
-            })
-            .catch(() => {
-                this.setState({ message: 'User exist, password must longer than 6 digits.' })
-            })
+        //firebase.auth().signInWithEmailAndPassword(email, password)
+        this.props.navigation.navigate('TaskForm')
     }
 
     render() {

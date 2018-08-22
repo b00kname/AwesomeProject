@@ -4,7 +4,7 @@ import App from './TaskToGo/App';
 //import TaskForm from './TaskToGo/TaskForm';
 //import App from './TTG/App';
 //import LoginScreen from './TTG/LoginScreen';
-import Login from './TaskToGo/Login'
+//import Login from './TaskToGo/Login'
 
 //import SectionList from './SectionList'; 
 //import DatePicker from './DatePicker';
@@ -18,4 +18,4 @@ import Login from './TaskToGo/Login'
 
 
 
-AppRegistry.registerComponent('AwesomeProject', () => Login);
+AppRegistry.registerComponent('AwesomeProject', () => App);
