@@ -109,7 +109,8 @@ export default class TaskForm extends Component {
                     />
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button}
+                    onPress={() => this.props.navigation.navigate('DisplayScreen')}>
                     <Text style={styles.buttonText}>Done</Text>
                 </TouchableOpacity>
             </View>

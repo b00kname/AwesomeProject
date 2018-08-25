@@ -58,9 +58,12 @@ export default class Login extends Component {
 
                 <Text style={styles.logoTitle}>Task To Go</Text>
 
+                <Text style={styles.message}>{this.state.message}</Text>
+
                 <TextInput style={styles.inputBox} underlineColorAndroid='rgba(0, 0, 0, 0)'
                     placeholder='Email'
                     placeholderTextColor='#ffffff'
+                    keyboardType='email-address'
                     autoCorrect={false}
                     value={this.state.email}
                     onChangeText={(email) => this.setState({ email })} />
@@ -82,8 +85,6 @@ export default class Login extends Component {
                     onPress={this.onSignupPress.bind(this)}>
                     <Text style={styles.buttonText}>Register</Text>
                 </TouchableOpacity>
-
-                <Text style={styles.message}>{this.state.message}</Text>
             </View >
         );
     }
@@ -104,8 +105,9 @@ const styles = StyleSheet.create({
     },
 
     message: {
-        color: 'rgba(255, 255, 255, 0.7)',
+        color: '#ffffff',
         fontSize: 20,
+        
         textAlign: 'center'
     },
 

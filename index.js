@@ -12,6 +12,7 @@ import App from './TaskToGo/App';
 //import App from './Lecture4SQLite/App'
 //import CreateScreen from './Lecture5SocketIO/CreateScreen';
 //import App from './Lecture5SocketIOChatRoom/App';
+//import App from './Lecture6OpenMaps/App'
 
 //import App from './Hotspots/App';
 
