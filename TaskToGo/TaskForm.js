@@ -1,5 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, DatePickerAndroid, TimePickerAndroid, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput, DatePickerAndroid, TimePickerAndroid, TouchableOpacity, FlatList, StyleSheet } from 'react-native';
+import firebase from '@firebase/app'
+import '@firebase/database'
+
+var config = {
+    apiKey: "AIzaSyDG4GzUOBrpt9dr3VdiUZSpr5TY9dzm7N4",
+    authDomain: "tasktogoo.firebaseapp.com",
+    databaseURL: "https://tasktogoo.firebaseio.com",
+    projectId: "tasktogoo",
+    storageBucket: "tasktogoo.appspot.com",
+    messagingSenderId: "682989888050"
+};
+firebase.initializeApp(config);
+
+const rootRef = firebase.database().ref();
+const taskRef = rootRef.child('tasks');
 
 Date.prototype.formatted = function () {
     let date = this.getDate();
@@ -25,7 +40,11 @@ export default class TaskForm extends Component {
 
             hour: null,
             minute: null,
-            timeText: ''
+            timeText: '',
+
+            tasks: [],
+            newTask: '',
+            newDetails: ''
         }
     }
 
@@ -78,17 +97,30 @@ export default class TaskForm extends Component {
         }
     }
 
+    onPressAdd = () => {
+        taskRef.push({
+            newTask: this.state.newTask,
+            newDetails: this.state.newDetails,
+            newDate: this.state.dateText,
+            newTime: this.state.timeText
+        })
+        //this.props.navigation.navigate('DisplayScreen')
+    }
+
     render() {
         return (
             <View style={styles.container}>
                 <Text style={styles.title}>Add Task</Text>
+
                 <TextInput style={styles.inputBox}
                     placeholder='Task'
-                    placeholderTextColor='#ffffff' />
+                    placeholderTextColor='#ffffff'
+                    onChangeText={(x) => this.setState({ newTask: x })} />
 
                 <TextInput style={styles.inputBox}
                     placeholder='Details'
-                    placeholderTextColor='#ffffff' />
+                    placeholderTextColor='#ffffff'
+                    onChangeText={(x) => this.setState({ newDetails: x })} />
 
                 <TouchableOpacity
                     onPress={this.openDatePicker}>
@@ -105,12 +137,11 @@ export default class TaskForm extends Component {
                         placeholder='Time'
                         placeholderTextColor='#ffffff'
                         value={this.state.timeText}
-                        editable={false}
-                    />
+                        editable={false} />
                 </TouchableOpacity>
 
                 <TouchableOpacity style={styles.button}
-                    onPress={() => this.props.navigation.navigate('DisplayScreen')}>
+                    onPress={this.onPressAdd}>
                     <Text style={styles.buttonText}>Done</Text>
                 </TouchableOpacity>
             </View>

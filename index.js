@@ -16,7 +16,4 @@ import App from './TaskToGo/App';
 
 //import App from './Hotspots/App';
 
-
-
-
 AppRegistry.registerComponent('AwesomeProject', () => App);
